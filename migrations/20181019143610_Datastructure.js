@@ -14,6 +14,10 @@ exports.up = function(knex, Promise) {
       .timestamp("created_at")
       .notNullable()
       .defaultTo(knex.fn.now());
+  }).createTable("users",function(table){
+    // chave primária
+    table.increments("oid");
+    table.string("email", 50);
   });
 };
 
